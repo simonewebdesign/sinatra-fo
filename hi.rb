@@ -7,3 +7,7 @@ end
 get '/about' do
   "About us :)"
 end
+
+get '/erb' do
+  erb :index
+end
