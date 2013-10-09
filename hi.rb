@@ -1,13 +1,20 @@
 require 'sinatra'
 
 get '/' do
-  "<h1>Hello, World!</h1> Please read <a href='about'>about us</a>."
+  erb :index
 end
 
 get '/about' do
   "About us :)"
 end
 
-get '/erb' do
-  erb :index
+post '/subscribe' do
+  # The HTTP response status code 303 See Other
+  # is the correct way to redirect web applications to a 
+  # new URI, particularly after an HTTP POST has been performed.
+  redirect '/done', 303
+end
+
+get '/done' do
+  erb :done
 end
